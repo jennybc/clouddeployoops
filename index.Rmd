@@ -1,0 +1,25 @@
+---
+title: "Trouble deploying to Posit Cloud"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(memoise)
+
+f <- function(x) {
+  Sys.sleep(1)
+  mean(x)
+}
+mf <- memoise(f)
+
+system.time(mf(1:10))
+
+system.time(mf(1:10))
+```
+
+
